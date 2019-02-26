@@ -161,7 +161,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3.1202633
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0.07, y: 0.92, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -261,9 +261,9 @@ GameObject:
   m_Component:
   - component: {fileID: 590571535}
   - component: {fileID: 590571534}
-  - component: {fileID: 590571533}
   - component: {fileID: 590571532}
   - component: {fileID: 590571531}
+  - component: {fileID: 590571533}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -287,6 +287,7 @@ MonoBehaviour:
   keyUp: 273
   keyDown: 274
   speed: 250
+  actualSpeed: 0
 --- !u!50 &590571532
 Rigidbody2D:
   serializedVersion: 4
@@ -307,8 +308,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &590571533
-CircleCollider2D:
+--- !u!70 &590571533
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -319,9 +320,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
+  m_Offset: {x: 0, y: 0.01}
+  m_Size: {x: 0.31, y: 0.49}
+  m_Direction: 0
 --- !u!212 &590571534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -357,9 +358,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 05a0bfec57c51b4458f9c5060647b225, type: 3}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: c663e8a32246af84fa51c44bf15737f5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.2, y: 0.2}
@@ -579,7 +580,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 805961880}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.156, y: 0, z: 0}
+  m_LocalPosition: {x: 0.287, y: 0.203, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 590571535}
@@ -791,9 +792,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1015731145}
   - component: {fileID: 1015731144}
-  - component: {fileID: 1015731143}
   - component: {fileID: 1015731142}
   - component: {fileID: 1015731146}
+  - component: {fileID: 1015731143}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -821,8 +822,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &1015731143
-CircleCollider2D:
+--- !u!70 &1015731143
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -833,9 +834,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
+  m_Offset: {x: 0, y: 0.01}
+  m_Size: {x: 0.31, y: 0.49}
+  m_Direction: 0
 --- !u!212 &1015731144
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -871,7 +872,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 05a0bfec57c51b4458f9c5060647b225, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1662741fc2e020141bfb4f880049341a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -912,6 +913,7 @@ MonoBehaviour:
   keyUp: 119
   keyDown: 115
   speed: 250
+  actualSpeed: 0
 --- !u!1 &1124675122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +1033,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1233496402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.156, y: 0, z: 0}
+  m_LocalPosition: {x: 0.171, y: 0.204, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1015731145}

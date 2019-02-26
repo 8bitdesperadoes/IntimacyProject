@@ -11,16 +11,21 @@ public class PlayerMovement : MonoBehaviour {
 	public KeyCode keyDown;
 
 	public float speed = 1;
+	public float actualSpeed;
 
 	float direction;
 	Rigidbody2D rb;
 
 	Transform pick;
 
+	PlayerMovement[] players;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		pick = transform.GetChild(0);
+
+		players = GameObject.FindObjectsOfType<PlayerMovement>();
 	}
 	
 	// Update is called once per frame
@@ -38,18 +43,18 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		if (Input.GetKey (keyUp)) {
-			MovePick (.3f);
+			MovePick (.31f);
 		} else {
-			MovePick (.156f);
+			MovePick (.22f);
 		}
 
 		if (Input.GetKey (keyDown)) {
-			MovePick (.04f);
+			MovePick (.13f);
 		}else{
-			MovePick (.156f);
+			MovePick (.22f);
 		}
 
-		rb.angularVelocity = direction * speed;
+		SetSpeed ();
 	}
 
 	void MovePick(float target)
@@ -58,4 +63,14 @@ public class PlayerMovement : MonoBehaviour {
 		Vector3 newPos = Vector3.Lerp (pick.localPosition, targetPosition, .1f);
 		pick.localPosition = newPos;
 	}
+
+	void SetSpeed() {
+		float dist = Vector3.Distance (players [0].transform.position, players [1].transform.position);
+		dist = Mathf.Clamp (dist, 1f, 1.5f);
+		Debug.Log (dist);
+		float mod = 1 / dist;
+		actualSpeed = (direction * mod) * speed;
+		rb.angularVelocity = actualSpeed;
+	}
+
 }

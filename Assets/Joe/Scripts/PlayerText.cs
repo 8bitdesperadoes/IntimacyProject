@@ -10,11 +10,14 @@ public class PlayerText : MonoBehaviour {
 	public TextMesh tm;
 	public float dist;
 
+    public string situationalText;
+
 	PlayerMovement[] players;
 	// Use this for initialization
 	void Start () {
 		tm = GetComponent<TextMesh>();
 		players = GameObject.FindObjectsOfType<PlayerMovement>();
+        situationalText = "";
 	}
 	
 	// Update is called once per frame
@@ -38,17 +41,31 @@ public class PlayerText : MonoBehaviour {
 		showText = true;
 		dist = Vector3.Distance(players[0].transform.position, players[1].transform.position);
 		dist = (1 / dist);
-		if (dist >= 0.75) {
-			tm.text = "Thanks for being my pardner,\n pardner.";
-			if (!found) found = true;
-		} else if (dist <= 0.3) {
-			tm.text = "It's lonely out here,\n pardner.";
-		} else {
-			if (!found) {
-				tm.text = "Wanna be my pardner,\n pardner?";
-			} else
-				tm.text = "Where'd ya go,\n pardner?";
-		}
+        if (situationalText == "")
+        {
+            if (dist >= 0.75)
+            {
+                tm.text = "Thanks for being my pardner,\n pardner.";
+                if (!found) found = true;
+            }
+            else if (dist <= 0.3)
+            {
+                tm.text = "It's lonely out here,\n pardner.";
+            }
+            else
+            {
+                if (!found)
+                {
+                    tm.text = "Wanna be my pardner,\n pardner?";
+                }
+                else
+                    tm.text = "Where'd ya go,\n pardner?";
+            }
+        }
+        else
+        {
+            tm.text = situationalText;
+        }
 	}
 
 	void timerEnded2()

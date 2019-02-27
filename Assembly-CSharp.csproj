@@ -57,6 +57,7 @@
      <Compile Include="Assets\GameController.cs" />
      <Compile Include="Assets\Joe\Scripts\AltTextOutliner.cs" />
      <Compile Include="Assets\Joe\Scripts\BGMFade.cs" />
+     <Compile Include="Assets\Joe\Scripts\PlayerText.cs" />
      <Compile Include="Assets\PlayerCollider.cs" />
      <Compile Include="Assets\RotatePick.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />

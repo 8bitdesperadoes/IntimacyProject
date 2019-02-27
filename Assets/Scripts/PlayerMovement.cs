@@ -67,7 +67,6 @@ public class PlayerMovement : MonoBehaviour {
         float dist = Vector3.Distance(players[0].transform.position, players[1].transform.position);
         dist = 1 / dist;
         float actualSpeed = (speed * Mathf.Clamp(dist, .1f, 1)) * direction;
-        Debug.Log(actualSpeed);
         rb.angularVelocity = actualSpeed;
 
     }

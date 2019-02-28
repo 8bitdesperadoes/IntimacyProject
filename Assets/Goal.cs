@@ -21,19 +21,27 @@ public class Goal : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<PlayerMovement>())
+        if (other.gameObject == gameController.players[0])
         {
-            gameController.playerCollisions++;
+            gameController.player1Collision = true;
+        }
+        if (other.gameObject == gameController.players[1])
+        {
+            gameController.player2Collision = true;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<PlayerMovement>())
         {
-            gameController.playerCollisions--;
+            gameController.player1Collision = false;
+        }
+        if (other.gameObject == gameController.players[1])
+        {
+            gameController.player2Collision = false;
         }
     }
 }

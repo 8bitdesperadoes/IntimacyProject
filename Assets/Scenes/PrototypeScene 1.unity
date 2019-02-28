@@ -588,6 +588,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCollisions: 0
+  players:
+  - {fileID: 1015731141}
+  - {fileID: 590571530}
+  player1Collision: 0
+  player2Collision: 0
   gameState: 0
 --- !u!4 &367876282
 Transform:
@@ -899,8 +904,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707263ed091d01340a827513c857fbb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winPosition: {x: 0, y: 0, z: 0}
-  winSize: 0
+  winPosition: {x: 0, y: 2.5, z: -3.5}
+  winSize: 2.6
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

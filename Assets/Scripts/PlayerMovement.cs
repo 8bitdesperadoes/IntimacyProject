@@ -19,12 +19,16 @@ public class PlayerMovement : MonoBehaviour {
 
     PlayerMovement[] players;
 
-	// Use this for initialization
-	void Start () {
+    GameController gameController;
+
+    // Use this for initialization
+    void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		pick = transform.GetChild(0);
 
-        players = GameObject.FindObjectsOfType<PlayerMovement>();
+        players = FindObjectsOfType<PlayerMovement>();
+
+        gameController = FindObjectOfType<GameController>();
 	}
 	
 	// Update is called once per frame

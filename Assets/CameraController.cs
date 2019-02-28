@@ -11,11 +11,15 @@ public class CameraController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        gameController = GameObject.FindObjectOfType<GameController>();
+        gameController = FindObjectOfType<GameController>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (gameController.gameState == GameController.GameState.win)
+        {
+            transform.position = Vector3.Lerp(transform.position, winPosition,.005f);
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, winSize,.005f);
+        }
 	}
 }

@@ -6,6 +6,11 @@ public class GameController : MonoBehaviour {
 
     public int playerCollisions;
 
+    public GameObject[] players;
+
+    public bool player1Collision;
+    public bool player2Collision;
+
     public enum GameState
     {
         active,
@@ -22,14 +27,26 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (playerCollisions == 2)
+        if (player1Collision && player2Collision)
         {
             ChangeGameState(GameState.win);
         }
+
+
     }
 
     void ChangeGameState(GameState state)
     {
         gameState = state;
+
+        switch (gameState)
+        {
+            case GameState.win:
+                foreach (GameObject player in players)
+                {
+                    player.GetComponent<Rigidbody2D>().simulated = false;
+                }
+                break;
+        }
     }
 }

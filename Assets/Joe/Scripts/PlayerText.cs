@@ -12,26 +12,33 @@ public class PlayerText : MonoBehaviour {
 
     public string situationalText;
 
+	GameController gameController;
+
 	PlayerMovement[] players;
 	// Use this for initialization
 	void Start () {
 		tm = GetComponent<TextMesh>();
 		players = GameObject.FindObjectsOfType<PlayerMovement>();
         situationalText = "";
+		gameController = FindObjectOfType<GameController> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (timerRunning) {
-			timer -= Time.deltaTime;
-		}
-
-		if (timer <= 0.0f) {
-			if (!showText) {
-				timerEnded1 ();
-			} else {
-				timerEnded2 ();
+		if (gameController.gameState != GameController.GameState.win) {
+			if (timerRunning) {
+				timer -= Time.deltaTime;
 			}
+
+			if (timer <= 0.0f) {
+				if (!showText) {
+					timerEnded1 ();
+				} else {
+					timerEnded2 ();
+				}
+			}
+		} else {
+			showText = false;
 		}
 	}
 

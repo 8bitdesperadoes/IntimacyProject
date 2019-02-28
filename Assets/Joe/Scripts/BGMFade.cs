@@ -23,6 +23,7 @@ public class BGMFade : MonoBehaviour {
 	void setVolume () {
 		float dist = Vector3.Distance(players[0].transform.position, players[1].transform.position);
 		volume = (1 / dist / 8);
+		volume = Mathf.Clamp (volume,.04f, .2f);
 		bgm.volume = volume;
 	}
 }

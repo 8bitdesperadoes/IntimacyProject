@@ -17,12 +17,20 @@ public class PickSound : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter(Collider col)
+	void OnCollisionEnter2D(Collision2D col)
 	{
-		audio.Stop ();
-		audio.Play ();
-		ChangeAudioClip ();
-
+		/*
+		if (col.collider.gameObject.name == "pick") {
+			
+		}
+		*/
+		foreach (ContactPoint2D contact in col.contacts) {
+			if (contact.otherCollider.gameObject.name == "pick") {
+				audio.Stop ();
+				audio.Play ();
+				ChangeAudioClip ();	
+			}
+		}
 	}
 
 	void ChangeAudioClip()

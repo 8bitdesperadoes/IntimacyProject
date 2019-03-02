@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour {
         if (gameController.gameState == GameController.GameState.win)
         {
 			if (Vector3.Distance (transform.position, winPosition) > .1f) {
-				background.transform.position = Vector3.Lerp (background.transform.position, winPosition/1.5f, .005f);
+				background.transform.position = Vector2.Lerp (background.transform.position, winPosition/1.5f, .005f);
 				transform.position = Vector3.Lerp (transform.position, winPosition, .005f);
 				Camera.main.orthographicSize = Mathf.Lerp (Camera.main.orthographicSize, winSize, .005f);
 			}

@@ -38,7 +38,7 @@ public class PlayerText : MonoBehaviour {
 				}
 			}
 		} else {
-			showText = false;
+			gameObject.SetActive(false);
 		}
 	}
 

@@ -4,17 +4,55 @@ using UnityEngine;
 
 public class PlayerText : MonoBehaviour {
 	public float timer = 7.0f;
-	public bool timerRunning = true;
-	public bool showText = false;
-	public bool found = false;
+	private bool timerRunning = true;
+	private bool showText = false;
+	private bool found = false;
 	public TextMesh tm;
 	public float dist;
+	public float closeRange;
+	public float farRange;
 
-    public string situationalText;
+	public string situationalText;
 
 	GameController gameController;
 
 	PlayerMovement[] players;
+
+	[SerializeField]
+	private string[] textList1;
+	private string[] textList2;
+	private string[] textList3;
+	private string[] textList4;
+
+	void Awake () {
+		textList1 = new string[]
+		{
+			"I'm glad you're my pardner,\n pardner.",
+			"We make a good team,\n pardner.",
+			"We work great together,\n pardner.",
+			"Thanks for being my pardner,\n pardner.",
+			"Couldn't do it without ya,\n pardner.",
+		};
+		textList2 = new string[]
+		{
+			"Can't do this without ya,\n pardner.",
+			"We're better together,\n pardner.",
+			"I need mah pardner,\n pardner.",
+			"Where'd ya go,\n pardner?",
+			"Where'd ya runnin' off to,\n pardner?",
+		};
+		textList3 = new string[]
+		{
+			"Wanna be my pardner,\n pardner?",
+			"Care to team up,\n pardner?",
+		};
+		textList4 = new string[]
+		{
+			"It's sure lonely out here,\n pardner.",
+			"Wish I had a pardner,\n pardner.",
+			"I could use a pardner,\n pardner.",
+		};
+	}
 	// Use this for initialization
 	void Start () {
 		tm = GetComponent<TextMesh>();
@@ -50,23 +88,23 @@ public class PlayerText : MonoBehaviour {
 		dist = (1 / dist);
         if (situationalText == "")
         {
-            if (dist >= 0.75)
+			if (dist >= closeRange)
             {
-                tm.text = "Thanks for being my pardner,\n pardner.";
+				tm.text = textList1[Random.Range(0, textList1.Length)];
                 if (!found) found = true;
             }
-            else if (dist <= 0.3)
+			else if (dist <= farRange)
             {
-                tm.text = "It's lonely out here,\n pardner.";
+				tm.text = textList4[Random.Range(0, textList4.Length)];
             }
             else
             {
                 if (!found)
                 {
-                    tm.text = "Wanna be my pardner,\n pardner?";
+					tm.text = textList3[Random.Range(0, textList3.Length)];
                 }
                 else
-                    tm.text = "Where'd ya go,\n pardner?";
+					tm.text = textList2[Random.Range(0, textList2.Length)];
             }
         }
         else
